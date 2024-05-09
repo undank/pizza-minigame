@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Eating Race Game</title>
+    <link rel="stylesheet" href="minigamepizza.css">
+</head>
+<body>
+    <button id="minigameButton" onclick="startGame()">Start Game</button>
+    <div id="instructionsDiv" class="instructions">
+        Quickly click the button to eat your pizza and win!
+    </div>
+    <div id="gameArea" class="pizza-container" style="display: none;">
+        <div class="player-container">
+            <img src="images/iconplayer.png" alt="Player Icon" class="icon">
+            <img id="playerPizza" src="images/pizzafull.png" alt="Player Full Pizza">
+        </div>
+        <div class="enemy-container">
+            <img src="images/iconenemy.png" alt="Enemy Icon" class="icon">
+            <img id="enemyPizza" src="images/pizzafull.png" alt="Enemy Full Pizza">
+        </div>
+    </div>
+    <button id="eatSliceButton" style="display: none;" onclick="slicePizza()">Eat the pizza!</button>
+    <div id="winnerDiv" class="winner" style="display: none;">
+        <!-- Winner will be displayed here -->
+    </div>
+    <audio id="gameTheme" src="pizzatheme.ogg"></audio>
+    <script src="minigamepizza.js"></script>
+</body>
+</html>
