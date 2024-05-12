@@ -1,4 +1,5 @@
 document.getElementById('minigameButton').addEventListener('click', startGame);
+var foodSounds = ['sounds/bite1.ogg', 'sounds/bite2.ogg', 'sounds/bite3.ogg'];
 
 let playerClicks = 10;
 let enemyClicks = 10;
@@ -45,6 +46,8 @@ function slicePizza() {
 
 function updatePizza(pizzaId, clicks) {
     if (clicks % 20 === 0) {  // Now requires 10 clicks per slice
+        randomSoundIndex = Math.floor(Math.random() * foodSounds.length);
+        playSound(foodSounds[randomSoundIndex]);
         const slicesLeft = totalSlices - Math.floor(clicks / 20);  // Update to reflect more clicks per slice
         const pizzaImage = document.getElementById(pizzaId);
         pizzaImage.src = slicesLeft > 0 ? `images/pizza${slicesLeft}.png` : 'images/pizza0.png';
@@ -65,6 +68,10 @@ function endGame(isPlayer) {
     document.getElementById('gameArea').style.display = 'none';
     document.getElementById('eatSliceButton').style.display = 'none';
     //document.getElementById('minigameButton').style.display = 'block'; // Show the start button again for a new game
+}
+
+function playSound(src) {
+    new Audio(src).play();
 }
 
 
