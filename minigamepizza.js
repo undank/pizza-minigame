@@ -3,9 +3,9 @@ var foodSounds = ['sounds/bite1.ogg', 'sounds/bite2.ogg', 'sounds/bite3.ogg'];
 
 let playerClicks = 10;
 let enemyClicks = 10;
-const totalSlices = 7; // Adjust as per your setup
+const totalSlices = 7;
 let enemyInterval;
-let gameTheme = document.getElementById('gameTheme'); // Get the audio element
+let gameTheme = document.getElementById('gameTheme'); 
 
 function startGame() {
     gameTheme.play(); // Start playing the game theme
@@ -52,7 +52,7 @@ function updatePizza(pizzaId, clicks) {
         const pizzaImage = document.getElementById(pizzaId);
         pizzaImage.src = slicesLeft > 0 ? `images/pizza${slicesLeft}.png` : 'images/pizza0.png';
         if (slicesLeft <= 0) {
-            return false;  // Signal that the game should end
+            return false;  // end game if either player has no slices
         }
     }
     return true;
