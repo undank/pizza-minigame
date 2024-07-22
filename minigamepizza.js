@@ -1,5 +1,7 @@
 document.getElementById('minigameButton').addEventListener('click', startGame);
 var foodSounds = ['sounds/bite1.ogg', 'sounds/bite2.ogg', 'sounds/bite3.ogg'];
+const winSound = document.getElementById('winSound');
+const loseSound = document.getElementById('loseSound');
 
 let playerClicks = 10;
 let enemyClicks = 10;
@@ -64,6 +66,11 @@ function endGame(isPlayer) {
     gameTheme.currentTime = 0; // Reset the audio to the start
     clearInterval(enemyInterval);
     document.getElementById('winnerDiv').innerHTML = (isPlayer ? "Nemz won the game!" : "Nemz lost the game!");
+    if (isPlayer) {
+        winSound.play();
+    } else {
+        loseSound.play();
+    }
     document.getElementById('winnerDiv').style.display = 'block';
     document.getElementById('gameArea').style.display = 'none';
     document.getElementById('eatSliceButton').style.display = 'none';
